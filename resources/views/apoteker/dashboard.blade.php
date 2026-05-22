@@ -1,6 +1,6 @@
-@extends('layouts.admin.main')
+@extends('layouts.apoteker.main')
 
-@section('title', 'Dasbor Admin')
+@section('title', 'Dasbor Apoteker')
 
 @section('content')
 <div class="space-y-6">
@@ -11,9 +11,7 @@
                 <h3 class="text-3xl font-bold text-gray-800 mt-1">120</h3>
                 <a href="#" class="text-[#149387] text-xs font-semibold mt-3 block hover:underline">Lihat Detail</a>
             </div>
-            <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center text-xl">
-                <i class="fa-solid fa-users"></i>
-            </div>
+            <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-users"></i></div>
         </div>
         <div class="bg-white p-6 rounded-3xl shadow-xs border border-gray-100 flex items-center justify-between">
             <div>
@@ -21,9 +19,7 @@
                 <h3 class="text-3xl font-bold text-gray-800 mt-1">234</h3>
                 <a href="#" class="text-[#149387] text-xs font-semibold mt-3 block hover:underline">Lihat Detail</a>
             </div>
-            <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-xl">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
+            <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-cart-shopping"></i></div>
         </div>
         <div class="bg-white p-6 rounded-3xl shadow-xs border border-gray-100 flex items-center justify-between">
             <div>
@@ -31,9 +27,7 @@
                 <h3 class="text-3xl font-bold text-gray-800 mt-1">$456</h3>
                 <a href="#" class="text-[#149387] text-xs font-semibold mt-3 block hover:underline">Lihat Detail</a>
             </div>
-            <div class="w-14 h-14 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center text-xl">
-                <i class="fa-solid fa-wallet"></i>
-            </div>
+            <div class="w-14 h-14 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-wallet"></i></div>
         </div>
         <div class="bg-white p-6 rounded-3xl shadow-xs border border-gray-100 flex items-center justify-between">
             <div>
@@ -41,9 +35,7 @@
                 <h3 class="text-3xl font-bold text-gray-800 mt-1">56</h3>
                 <a href="#" class="text-[#149387] text-xs font-semibold mt-3 block hover:underline">Lihat Detail</a>
             </div>
-            <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center text-xl">
-                <i class="fa-solid fa-box-open"></i>
-            </div>
+            <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-box-open"></i></div>
         </div>
     </div>
 
@@ -54,7 +46,7 @@
                 <a href="#" class="text-[#149387] text-xs font-bold flex items-center gap-1 hover:underline">Lihat Semua <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
             </div>
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm min-w-[550px]">
+                <table class="w-full text-left text-sm min-w-[500px]">
                     <thead class="text-gray-400 border-b border-gray-100 text-xs">
                         <tr>
                             <th class="pb-3 pr-2 font-medium">Nama Obat <i class="fa-solid fa-arrows-up-down text-[9px] ml-0.5"></i></th>
@@ -64,22 +56,16 @@
                             <th class="pb-3 pl-2 font-medium text-right">Kembalikan <i class="fa-solid fa-arrows-up-down text-[9px] ml-0.5"></i></th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-50 text-gray-600 text-sm">
-                        @foreach ([
-                            'Doxycycline' => '24 Dec 2021', 
-                            'Abetis' => '24 Dec 2021', 
-                            'Diasulin 10ml' => '24 Dec 2021',
-                            'Diasulin 10ml ' => '24 Dec 2021',
-                            'Diasulin 10ml  ' => '24 Dec 2021'
-                        ] as $name => $date)
-                        <tr class="hover:bg-gray-50/50 transition-all">
+                    <tbody class="divide-y divide-gray-50 text-gray-600">
+                        @foreach (['Doxycycline', 'Abetis', 'Diasulin 10ml', 'Diasulin 10ml ', 'Diasulin 10ml  '] as $name)
+                        <tr class="hover:bg-gray-50/50 transition-all text-sm">
                             <td class="py-4 pr-2 font-semibold text-gray-800">{{ trim($name) }}</td>
-                            <td class="py-4 px-2 text-xs text-gray-500">{{ $date }}</td>
+                            <td class="py-4 px-2 text-xs text-gray-500">24 Dec 2021</td>
                             <td class="py-4 px-2 font-medium">40</td>
                             <td class="py-4 px-2 text-emerald-500">
                                 <svg class="w-12 h-5" viewBox="0 0 50 20" fill="none"><path d="M2 15 L12 8 L25 14 L38 4 L48 12" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </td>
-                            <td class="py-4 pl-2 text-right text-gray-300"><button class="hover:text-gray-500 cursor-pointer"><i class="fa-solid fa-arrow-rotate-left text-xs"></i></button></td>
+                            <td class="py-4 pl-2 text-right text-gray-300"><button class="hover:text-gray-500"><i class="fa-solid fa-arrow-rotate-left text-xs"></i></button></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -93,7 +79,7 @@
                 <a href="#" class="text-[#149387] text-xs font-bold flex items-center gap-1 hover:underline">Lihat Semua <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
             </div>
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm min-w-[550px]">
+                <table class="w-full text-left text-sm min-w-[500px]">
                     <thead class="text-gray-400 border-b border-gray-100 text-xs">
                         <tr>
                             <th class="pb-3 pr-4 font-medium">Nama Obat <i class="fa-solid fa-arrows-up-down text-[9px] ml-0.5"></i></th>
@@ -103,7 +89,7 @@
                             <th class="pb-3 pl-4 font-medium text-right">Harga <i class="fa-solid fa-arrows-up-down text-[9px] ml-0.5"></i></th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-50 text-gray-600 text-sm">
+                    <tbody class="divide-y divide-gray-50 text-gray-600">
                         @php
                             $orders = [
                                 ['name' => 'Paricel 15mg', 'batch' => '783627834', 'qty' => 40, 'status' => 'Delivered', 'price' => '$23.00'],
@@ -114,7 +100,7 @@
                             ];
                         @endphp
                         @foreach ($orders as $order)
-                        <tr class="hover:bg-gray-50/50 transition-all">
+                        <tr class="hover:bg-gray-50/50 transition-all text-sm">
                             <td class="py-4 pr-4 font-semibold text-gray-800">{{ $order['name'] }}</td>
                             <td class="py-4 px-3 text-xs text-gray-500">{{ $order['batch'] }}</td>
                             <td class="py-4 px-3 font-medium">{{ $order['qty'] }}</td>
@@ -186,9 +172,9 @@
                 ];
             @endphp
             @foreach($articles as $art)
-            <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xs flex flex-col group">
+            <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xs flex flex-col group hover:shadow-md transition-shadow">
                 <div class="h-40 overflow-hidden relative">
-                    <img src="{{ $art['img'] }}" alt="Article Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <img src="{{ $art['img'] }}" alt="Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
                     <div class="space-y-2">
@@ -206,7 +192,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // --- BAR CHART ---
+        // --- 1. CONFIG GRAPH BAR (MONTHLY PROGRESS) ---
         const ctxBar = document.getElementById('monthlyChart').getContext('2d');
         const monthlyData = [75, 48, 55, 82, 18, 48, 85, 95, 52, 72, 50, 30];
         const barBackgrounds = monthlyData.map((val, index) => index === 7 ? '#1e1e1e' : '#54cb98');
@@ -234,7 +220,7 @@
             }
         });
 
-        // --- DONUT RADIAL CHART ---
+        // --- 2. CONFIG GRAPH RADIAL LINGKARAN (TODAY'S REPORT) ---
         const ctxRadial = document.getElementById('todaysReportChart').getContext('2d');
         new Chart(ctxRadial, {
             type: 'doughnut',

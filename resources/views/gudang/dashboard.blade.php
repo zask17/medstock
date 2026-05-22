@@ -1,6 +1,6 @@
 @extends('layouts.gudang.main')
 
-@section('title', 'Dashboard Gudang')
+@section('title', 'Dasbor Gudang')
 
 @section('content')
 <div class="space-y-6">
@@ -196,8 +196,8 @@
 
     <div class="space-y-4 pt-4">
         <div class="flex justify-between items-center">
-            <h3 class="font-bold text-gray-800 text-lg">Today's Article</h3>
-            <a href="#" class="text-[#149387] text-xs font-bold flex items-center gap-1 hover:underline">See all <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+            <h3 class="font-bold text-gray-800 text-lg">Artikel Hari Ini</h3>
+            <a href="#" class="text-[#149387] text-xs font-bold flex items-center gap-1 hover:underline">Lihat semua <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -216,7 +216,7 @@
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
                     <div class="space-y-2">
-                        <span class="bg-indigo-50 text-indigo-600 px-2.5 py-0.5 rounded-md text-[10px] font-bold">Technology</span>
+                        <span class="bg-indigo-50 text-indigo-600 px-2.5 py-0.5 rounded-md text-[10px] font-bold">Teknologi</span>
                         <h4 class="font-bold text-gray-800 text-sm line-clamp-2 leading-snug pt-1">{{ $art['title'] }}</h4>
                     </div>
                     <p class="text-[11px] text-gray-400 line-clamp-2 leading-relaxed">{{ $art['title'] }}</p>

@@ -10,27 +10,27 @@
         
         <a href="#" class="flex items-center space-x-3 p-3 rounded-xl bg-[#149387] text-white transition-all mb-2 shadow-xs">
             <i class="fa-solid fa-house w-5 text-center"></i>
-            <span class="font-semibold text-sm">Dashboard</span>
+            <span class="font-semibold text-sm">Dasbor</span>
         </a>
 
         <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-all">
             <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
-            <span class="font-medium text-sm">Article</span>
+            <span class="font-medium text-sm">Artikel</span>
         </a>
 
         <details class="group [&_summary::-webkit-details-marker]:hidden" open>
             <summary class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
                     <i class="fa-solid fa-cart-shopping w-5 text-center text-base"></i>
-                    <span class="font-medium text-sm">Purchase</span>
+                    <span class="font-medium text-sm">Pembelian</span>
                 </div>
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Purchase List</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Payment</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Purchase Return</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Return Receive</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Daftar Pembelian</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Pembayaran</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Retur Pembelian</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Terima Retur</a>
             </div>
         </details>
 
@@ -38,13 +38,13 @@
             <summary class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
                     <i class="fa-regular fa-cube w-5 text-center text-base"></i>
-                    <span class="font-medium text-sm">Product</span>
+                    <span class="font-medium text-sm">Produk</span>
                 </div>
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Product List</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Product Damages</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Daftar Produk</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Kerusakan Produk</a>
             </div>
         </details>
 
@@ -52,14 +52,14 @@
             <summary class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
                     <i class="fa-regular fa-file-lines w-5 text-center text-base"></i>
-                    <span class="font-medium text-sm">Reports</span>
+                    <span class="font-medium text-sm">Laporan</span>
                 </div>
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Sales Report</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Sales Return Report</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Purchase Report</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Laporan Penjualan</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Laporan Retur Penjualan</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Laporan Pembelian</a>
             </div>
         </details>
 
@@ -67,26 +67,26 @@
             <summary class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
                     <i class="fa-solid fa-chart-simple w-5 text-center text-base"></i>
-                    <span class="font-medium text-sm">Stock Report</span>
+                    <span class="font-medium text-sm">Laporan Stok</span>
                 </div>
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Stock Report</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Stock Report Batch</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Laporan Stok</a>
+                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Laporan Batch Stok</a>
             </div>
         </details>
 
         <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-all">
             <i class="fa-solid fa-gear w-5 text-center text-base"></i>
-            <span class="font-medium text-sm">Settings</span>
+            <span class="font-medium text-sm">Pengaturan</span>
         </a>
     </nav>
     
     <div class="p-4 border-t border-gray-100 shrink-0 bg-white">
         <a href="{{ route('login') }}" class="flex items-center space-x-3 p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all cursor-pointer">
             <i class="fa-solid fa-right-from-bracket w-5 text-center"></i>
-            <span class="font-medium text-sm">Logout</span>
+            <span class="font-medium text-sm">Keluar</span>
         </a>
     </div>
 </aside>

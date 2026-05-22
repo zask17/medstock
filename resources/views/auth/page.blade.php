@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedStock - Authentication</title>
+    <title>MedStock - Autentikasi</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         .transition-all-custom {
@@ -22,7 +22,7 @@
         </div>
 
         <div id="login-card" class="w-full bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-8 mt-8 opacity-0 translate-y-10 transition-all-custom pointer-events-none z-10">
-            <h2 class="text-2xl font-bold text-[#149387] text-center mb-6">Login</h2>
+            <h2 class="text-2xl font-bold text-[#149387] text-center mb-6">Masuk</h2>
 
             @if($errors->has('loginError'))
                 <div class="bg-red-50 text-red-500 p-3 rounded-xl text-sm mb-4 text-center border border-red-100">
@@ -54,7 +54,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
                     </span>
-                    <input type="password" name="password" id="password" placeholder="Password" class="w-full pl-12 pr-12 py-3 bg-[#F9FAFB] border border-gray-100 rounded-xl focus:outline-none focus:border-[#149387] focus:bg-white text-gray-700 placeholder-gray-400 transition-colors" required>
+                    <input type="password" name="password" id="password" placeholder="Kata Sandi" class="w-full pl-12 pr-12 py-3 bg-[#F9FAFB] border border-gray-100 rounded-xl focus:outline-none focus:border-[#149387] focus:bg-white text-gray-700 placeholder-gray-400 transition-colors" required>
                     <button type="button" onclick="togglePassword()" class="absolute right-4 text-gray-400 hover:text-gray-600 focus:outline-none">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5" id="eye-icon">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -73,12 +73,12 @@
                 </div>
 
                 <div class="text-center mt-2">
-                    <a href="{{ route('password.request') }}" class="text-sm font-semibold text-[#149387] hover:underline">Lupa Password?</a>
+                    <a href="{{ route('password.request') }}" class="text-sm font-semibold text-[#149387] hover:underline">Lupa Kata Sandi?</a>
                 </div>
 
                 <div class="pt-4 flex justify-center">
                     <button type="submit" class="w-3/4 bg-[#149387] hover:bg-[#0f7067] text-white font-semibold py-3 px-6 rounded-full shadow-lg shadow-[#149387]/30 transform active:scale-95 transition-all text-center cursor-pointer">
-                        Login
+                        Masuk
                     </button>
                 </div>
             </form>

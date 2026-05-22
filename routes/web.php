@@ -18,5 +18,8 @@ Route::post('/forgot-password/process', [AuthController::class, 'processForgotPa
 // ADMIN
 Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
 
-// PEGWAI GUDANG
+// PEGAWAI GUDANG
 Route::get('/gudang/dashboard', function () {return view('gudang.dashboard');})->name('gudang.dashboard');
+
+// APOTEKER
+Route::get('/apoteker/dashboard', function () {return view('apoteker.dashboard');})->name('apoteker.dashboard');
