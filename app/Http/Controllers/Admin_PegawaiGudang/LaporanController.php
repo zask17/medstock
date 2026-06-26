@@ -26,18 +26,25 @@ class LaporanController extends Controller
 
         abort(403, 'Anda tidak memiliki hak akses untuk halaman laporan ini.');
     }
+    
     public function laporanPenjualan()
     {
-        return view('admin_pegawaiGudang.laporan.penjualan');
+        return view('admin_pegawaiGudang.laporan.penjualan', [
+            'layout' => $this->getLayout()
+        ]);
     }
 
     public function laporanReturPenjualan()
     {
-        return view('admin_pegawaiGudang.laporan.retur-penjualan');
+        return view('admin_pegawaiGudang.laporan.retur-penjualan', [
+            'layout' => $this->getLayout()
+        ]);
     }
 
     public function laporanPembelian()
     {
-        return view('admin_pegawaiGudang.laporan.pembelian');
+        return view('admin_pegawaiGudang.laporan.pembelian', [
+            'layout' => $this->getLayout()
+        ]);
     }
 }

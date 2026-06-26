@@ -32,6 +32,7 @@ Route::prefix('/karyawan')->name('karyawan.')->group(function () {
         Route::get('/biaya', [KaryawanController::class, 'biaya'])->name('biaya');
         
         Route::prefix('/penggajian')->name('penggajian.')->group(function () {
+            Route::get('/', [KaryawanController::class, 'penggajian'])->name('index');
             Route::get('/daftar-tunjangan', [KaryawanController::class, 'daftarTunjangan'])->name('daftar-tunjangan');
             Route::get('/daftar-pengaturan-gaji', [KaryawanController::class, 'daftarPengaturanGaji'])->name('daftar-pengaturan-gaji');
             Route::get('/atur-gaji-karyawan', [KaryawanController::class, 'aturGajiKaryawan'])->name('atur-gaji-karyawan');
@@ -47,12 +48,6 @@ Route::prefix('/karyawan')->name('karyawan.')->group(function () {
 });
 
 
-// PEGAWAI GUDANG
-Route::prefix('/gudang')->name('gudang.')->group(function () {
-    Route::get('/dashboard', function () {return view('gudang.dashboard');})->name('dashboard');
-});
-
-
 // ADMIN - PEGAWAI GUDANG
 Route::prefix('/laporan')->name('admin_pegawaiGudang.laporan.')->group(function () {
     Route::get('/penjualan', [LaporanController::class, 'laporanPenjualan'])->name('penjualan');
@@ -63,6 +58,12 @@ Route::prefix('/laporan')->name('admin_pegawaiGudang.laporan.')->group(function 
 Route::prefix('/laporan-stok')->name('admin_pegawaiGudang.laporan-stok.')->group(function () {
     Route::get('/', [LaporanStockController::class, 'laporanStock'])->name('index');
     Route::get('/batch-stok', [LaporanStockController::class, 'laporanBatchStock'])->name('batch-stok');
+});
+
+
+// PEGAWAI GUDANG
+Route::prefix('/gudang')->name('gudang.')->group(function () {
+    Route::get('/dashboard', function () {return view('gudang.dashboard');})->name('dashboard');
 });
 
 

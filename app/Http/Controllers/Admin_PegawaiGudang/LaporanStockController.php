@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class LaporanStockController extends Controller
 {
-
     private function getLayout()
     {
         if (!session()->has('user_role')) {
@@ -24,15 +23,20 @@ class LaporanStockController extends Controller
             return 'layouts.gudang.main';
         }
 
-        abort(403, 'Anda tidak memiliki hak akses untuk halaman laporan ini.');
+        abort(403, 'Anda tidak memiliki hak akses untuk halaman laporan stok ini.');
     }
+
     public function laporanStock()
     {
-        return view('admin_pegawaiGudang.laporan-stok.index');
+        return view('admin_pegawaiGudang.laporan-stok.index', [
+            'layout' => $this->getLayout()
+        ]);
     }
 
     public function laporanBatchStock()
     {
-        return view('admin_pegawaiGudang.laporan-stok.batch-stok');
+        return view('admin_pegawaiGudang.laporan-stok.batch-stok', [
+            'layout' => $this->getLayout()
+        ]);
     }
 }

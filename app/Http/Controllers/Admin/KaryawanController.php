@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
-    // --- MANAJEMEN KARYAWAN UTAMA ---
+    // --- MANAJEMEN KARYAWAN ---
 
     public function index()
     {
@@ -29,8 +29,12 @@ class KaryawanController extends Controller
         return view('admin.karyawan.biaya');
     }
 
-    // --- MANAJEMEN PENGGAJIAN (SUB-MENU) ---
+    // --- MANAJEMEN PENGGAJIAN ---
 
+    public function penggajian()
+    {
+        return view('admin.karyawan.penggajian.index');
+    }
     public function daftarTunjangan()
     {
         return view('admin.karyawan.penggajian.daftar-tunjangan');
