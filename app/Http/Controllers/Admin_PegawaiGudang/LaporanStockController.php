@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin_PegawaiGudang;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class LaporanStockController extends Controller
 {

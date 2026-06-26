@@ -1,4 +1,4 @@
-@extends('layouts.admin.main')
+@extends($layout)
 
 @section('title', 'Daftar Produsen Mitra')
 

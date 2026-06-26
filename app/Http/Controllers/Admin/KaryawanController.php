@@ -3,60 +3,83 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
+    private function getLayout()
+    {
+        if (!session()->has('user_role')) {
+            return redirect()->route('login')->send();
+        }
+
+        $role = session('user_role');
+
+        if ($role === 'Admin System') {
+            return 'layouts.admin.main';
+        }
+        abort(403, 'Anda tidak memiliki hak akses untuk halaman ini.');
+    }
     // --- MANAJEMEN KARYAWAN ---
 
     public function index()
     {
-        return view('admin.karyawan.index');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.index', compact('layout'));
     }
 
     public function tambah()
     {
-        return view('admin.karyawan.tambah-karyawan');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.tambah-karyawan', compact('layout'));
     }
 
     public function absensi()
     {
-        return view('admin.karyawan.absensi');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.absensi', compact('layout'));
     }
 
     public function biaya()
     {
-        return view('admin.karyawan.biaya');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.biaya', compact('layout'));
     }
 
     // --- MANAJEMEN PENGGAJIAN ---
 
     public function penggajian()
     {
-        return view('admin.karyawan.penggajian.index');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.index', compact('layout'));
     }
+
     public function daftarTunjangan()
     {
-        return view('admin.karyawan.penggajian.daftar-tunjangan');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.daftar-tunjangan', compact('layout'));
     }
 
     public function daftarPengaturanGaji()
     {
-        return view('admin.karyawan.penggajian.daftar-pengaturan-gaji');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.daftar-pengaturan-gaji', compact('layout'));
     }
 
     public function aturGajiKaryawan()
     {
-        return view('admin.karyawan.penggajian.atur-gaji-karyawan');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.atur-gaji-karyawan', compact('layout'));
     }
 
     public function slipGaji()
     {
-        return view('admin.karyawan.penggajian.slip-gaji');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.slip-gaji', compact('layout'));
     }
 
     public function pembayaranGaji()
     {
-        return view('admin.karyawan.penggajian.pembayaran-gaji');
+        $layout = $this->getLayout();
+        return view('admin.karyawan.penggajian.pembayaran-gaji', compact('layout'));
     }
 }

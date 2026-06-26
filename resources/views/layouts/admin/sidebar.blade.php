@@ -125,10 +125,10 @@
                     class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
                     Daftar Karyawan
                 </a>
-                <a href="{{ route('admin.karyawan.tambah') }}"
+                {{-- <a href="{{ route('admin.karyawan.tambah') }}"
                     class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.tambah') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
                     Tambah Karyawan
-                </a>
+                </a> --}}
                 <a href="{{ route('admin.karyawan.absensi') }}"
                     class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.absensi') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
                     Absensi

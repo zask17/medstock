@@ -4,13 +4,9 @@
 namespace App\Http\Controllers\Apoteker;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DispenserController extends Controller
 {
-    /**
-     * Mengambil layout berdasarkan role session user
-     */
     private function getLayout()
     {
         if (!session()->has('user_role')) {
