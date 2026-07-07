@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\ProdusenController;
 use App\Http\Controllers\Admin_PegawaiGudang\LaporanController;
 use App\Http\Controllers\Admin_PegawaiGudang\LaporanStockController;
 
+use App\Http\Controllers\PegawaiGudang\PembelianController;
+use App\Http\Controllers\PegawaiGudang\ProdukController;
+
 use App\Http\Controllers\Apoteker\DispenserController;
 
 // Route::get('/', function () {
@@ -65,11 +68,28 @@ Route::prefix('/laporan-stok')->name('admin_pegawaiGudang.laporan-stok.')->group
 });
 
 
+
 // PEGAWAI GUDANG
 Route::prefix('/gudang')->name('gudang.')->group(function () {
     Route::get('/dashboard', function () {
         return view('gudang.dashboard');
     })->name('dashboard');
+Route::prefix('/pembelian')->name('pembelian.')->group(function () {
+        Route::get('/daftar-pembelian', [PembelianController::class, 'daftarPembelian'])->name('daftar-pembelian');
+        Route::get('/tambah-pembelian', [PembelianController::class, 'tambahPembelian'])->name('tambah');
+        Route::get('/invoice/{id}', [PembelianController::class, 'invoicePembelian'])->name('invoice');
+        Route::get('/pembayaran', [PembelianController::class, 'pembayaran'])->name('pembayaran');
+        Route::get('/retur-pembelian', [PembelianController::class, 'returPembelian'])->name('retur-pembelian');
+        Route::get('/tambah-retur', [PembelianController::class, 'tambahRetur'])->name('tambah-retur');
+        Route::get('/terima-retur', [PembelianController::class, 'terimaRetur'])->name('terima-retur');
+    });
+
+    // Manajemen Produk
+    Route::prefix('/produk')->name('produk.')->group(function () {
+        Route::get('/', [ProdukController::class, 'index'])->name('index'); // index.blade.php
+        Route::get('/daftar-produk', [ProdukController::class, 'daftarProduk'])->name('daftar-produk');
+        Route::get('/kerusakan-produk', [ProdukController::class, 'kerusakanProduk'])->name('kerusakan-produk');
+    });
 });
 
 

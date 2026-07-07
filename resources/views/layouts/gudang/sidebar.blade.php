@@ -24,7 +24,7 @@
             <span class="font-medium text-sm">Artikel</span>
         </a>
 
-        <details class="group [&_summary::-webkit-details-marker]:hidden" open>
+        <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('gudang.pembelian.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
@@ -35,17 +35,22 @@
                     class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Daftar
-                    Pembelian</a>
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Pembayaran</a>
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Retur
-                    Pembelian</a>
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Terima
-                    Retur</a>
+                <a href="{{ route('gudang.pembelian.daftar-pembelian') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('gudang.pembelian.daftar-pembelian') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    Daftar Pembelian
+                </a>
+                <a href="{{ route('gudang.pembelian.pembayaran') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('gudang.pembelian.pembayaran') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    Pembayaran
+                </a>
+                <a href="{{ route('gudang.pembelian.retur-pembelian') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('gudang.pembelian.retur-pembelian') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    Retur Pembelian
+                </a>
+                <a href="{{ route('gudang.pembelian.terima-retur') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('gudang.pembelian.terima-retur') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    Terima Retur
+                </a>
             </div>
         </details>
 
