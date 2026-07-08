@@ -4,21 +4,15 @@
 
 @section('content')
     <div class="space-y-6">
-        <div class="flex flex-wrap items-center gap-2 border-b border-gray-100 pb-3">
-            <a href="{{ route('artikel.index') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Daftar Artikel</a>
-            <a href="{{ route('artikel.kelola') }}" class="bg-[#149387] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xs">Kelola Artikel</a>
-            <a href="{{ route('artikel.ledger') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Buku Besar Artikel</a>
-        </div>
-
         <div class="bg-white rounded-3xl border border-gray-100 shadow-xs p-6 space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-xl font-bold text-gray-800">Manajemen Konten Artikel</h2>
                     <p class="text-xs text-gray-400 mt-1">Publikasikan, sunting, atau hapus konten artikel edukasi medis.</p>
                 </div>
-                <button onclick="openModal('modalTambahArtikel')" class="bg-[#149387] hover:bg-[#117c71] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs flex items-center gap-2 cursor-pointer transition-all">
+                <a href="{{ route('artikel.tambah') }}" class="bg-[#149387] hover:bg-[#117c71] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs flex items-center gap-2 cursor-pointer transition-all">
                     <i class="fa-solid fa-plus"></i> Buat Artikel Baru
-                </button>
+                </a>
             </div>
 
             <div class="overflow-x-auto border border-gray-100 rounded-2xl">

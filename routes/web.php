@@ -34,8 +34,9 @@ Route::prefix('/artikel')->name('artikel.')->group(function () {
     Route::get('/', [ArtikelController::class, 'index'])->name('index');
     Route::get('/baca/{id}', [ArtikelController::class, 'detailCms'])->name('detail-cms');
 
-    // Khusus Admin System
+// Khusus Admin System
     Route::get('/kelola', [ArtikelController::class, 'kelolaArtikel'])->name('kelola');
+    Route::get('/tambah', [ArtikelController::class, 'tambahArtikel'])->name('tambah'); // RUTE BARU
     Route::get('/buku-besar', [ArtikelController::class, 'artikelLedger'])->name('ledger');
 });
 

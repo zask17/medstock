@@ -18,24 +18,12 @@
             <span class="text-sm {{ request()->routeIs('apoteker.dashboard') ? 'font-semibold' : 'font-medium' }}">Dasbor</span>
         </a>
 
-        <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('artikel.*') ? 'open' : '' }}>
-            <summary
-                class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
-                {{ request()->routeIs('artikel.*') ? 'text-[#149387] bg-emerald-50/50 font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
-                <div class="flex items-center space-x-3">
-                    <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
-                    <span class="text-sm">Artikel</span>
-                </div>
-                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
-            </summary>
-            <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="{{ route('artikel.index') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.index') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
-                    <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
-                    Daftar Artikel
-                </a>
-            </div>
-        </details>
+        <!-- Artikel -->
+        <a href="{{ route('artikel.index') }}"
+            class="flex items-center space-x-3 p-3 rounded-xl transition-all mb-2 shadow-xs {{ request()->routeIs('artikel.*') ? 'bg-[#149387] text-white font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800 font-medium' }}">
+            <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
+            <span class="text-sm">Artikel</span>
+        </a>
 
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('apoteker.dispenser.*') ? 'open' : '' }}>
             <summary

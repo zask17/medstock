@@ -30,7 +30,6 @@ class ArtikelController extends Controller
             return 'layouts.asisten.main';
         }
 
-        // Default fallback layout jika role tidak spesifik
         return 'layouts.admin.main';
     }
 
@@ -54,6 +53,16 @@ class ArtikelController extends Controller
 
         $layout = $this->getLayout();
         return view('artikel.kelola-artikel', compact('layout'));
+    }
+
+    public function tambahArtikel()
+    {
+        if (session('user_role') !== 'Admin System') {
+            abort(403, 'Anda tidak memiliki hak akses untuk menambah artikel.');
+        }
+
+        $layout = $this->getLayout();
+        return view('artikel.tambah-artikel', compact('layout'));
     }
 
     public function artikelLedger()

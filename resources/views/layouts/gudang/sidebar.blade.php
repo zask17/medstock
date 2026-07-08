@@ -19,7 +19,7 @@
             <span class="text-sm {{ request()->routeIs('gudang.dashboard') ? 'font-semibold' : 'font-medium' }}">Dasbor</span>
         </a>
 
-        <!-- Artikel (Menu Tunggal Sesuai Foto image_cd8259.jpg) -->
+        <!-- Artikel -->
         <a href="{{ route('artikel.index') }}"
             class="flex items-center space-x-3 p-3 rounded-xl transition-all mb-2 shadow-xs {{ request()->routeIs('artikel.*') ? 'bg-[#149387] text-white font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800 font-medium' }}">
             <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
