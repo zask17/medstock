@@ -18,40 +18,58 @@
             <span class="text-sm {{ request()->routeIs('apoteker.dashboard') ? 'font-semibold' : 'font-medium' }}">Dasbor</span>
         </a>
 
-        <a href="#"
-            class="flex items-center space-x-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-all">
-            <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
-            <span class="font-medium text-sm">Artikel</span>
-        </a>
+        <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('artikel.*') ? 'open' : '' }}>
+            <summary
+                class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
+                {{ request()->routeIs('artikel.*') ? 'text-[#149387] bg-emerald-50/50 font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
+                    <span class="text-sm">Artikel</span>
+                </div>
+                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+            </summary>
+            <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
+                <a href="{{ route('artikel.index') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.index') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
+                    Daftar Artikel
+                </a>
+            </div>
+        </details>
 
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('apoteker.dispenser.*') ? 'open' : '' }}>
             <summary
-                class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none {{ request()->routeIs('apoteker.dispenser.*') ? 'bg-gray-50 text-gray-800' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
+                class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
+                {{ request()->routeIs('apoteker.dispenser.*') ? 'text-[#149387] bg-emerald-50/50 font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
                 <div class="flex items-center space-x-3">
                     <i class="fa-solid fa-capsules w-5 text-center text-base"></i>
-                    <span class="font-medium text-sm">Dispenser</span>
+                    <span class="text-sm">Dispenser</span>
                 </div>
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
                 <a href="{{ route('apoteker.dispenser.kasir') }}"
-                    class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('apoteker.dispenser.kasir') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('apoteker.dispenser.kasir') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-cash-register text-xs w-4 text-center"></i>
                     Kasir
                 </a>
                 
                 <a href="{{ route('apoteker.dispenser.daftar-penjualan') }}"
-                    class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('apoteker.dispenser.daftar-penjualan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('apoteker.dispenser.daftar-penjualan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-receipt text-xs w-4 text-center"></i>
                     Daftar Penjualan
                 </a>
                 
                 <a href="{{ route('apoteker.dispenser.penagihan') }}"
-                    class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('apoteker.dispenser.penagihan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('apoteker.dispenser.penagihan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-file-invoice text-xs w-4 text-center"></i>
                     Penagihan
                 </a>
                 
                 <a href="{{ route('apoteker.dispenser.retur-penjualan') }}"
-                    class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('apoteker.dispenser.retur-penjualan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('apoteker.dispenser.retur-penjualan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-arrow-rotate-left text-xs w-4 text-center"></i>
                     Retur Penjualan
                 </a>
             </div>

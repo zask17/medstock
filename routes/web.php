@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\ArtikelController;
+
 use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\ProdusenController;
 
@@ -24,6 +26,18 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 // Lupa Password
 Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordPage'])->name('password.request');
 Route::post('/forgot-password/process', [AuthController::class, 'processForgotPassword'])->name('password.process');
+
+
+
+Route::prefix('/artikel')->name('artikel.')->group(function () {
+    // Semua Role (Admin System, Pegawai Gudang, Apoteker, Asisten Apoteker)
+    Route::get('/', [ArtikelController::class, 'index'])->name('index');
+    Route::get('/baca/{id}', [ArtikelController::class, 'detailCms'])->name('detail-cms');
+
+    // Khusus Admin System
+    Route::get('/kelola', [ArtikelController::class, 'kelolaArtikel'])->name('kelola');
+    Route::get('/buku-besar', [ArtikelController::class, 'artikelLedger'])->name('ledger');
+});
 
 
 // ADMIN
@@ -53,6 +67,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         Route::get('/bank-produsen', [ProdusenController::class, 'bank'])->name('bank');
     });
 });
+
 
 
 // ADMIN - PEGAWAI GUDANG

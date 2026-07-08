@@ -20,10 +20,10 @@
         </a>
 
         <details class="group [&_summary::-webkit-details-marker]:hidden" 
-            {{ request()->is('*artikel*') ? 'open' : '' }}>
+            {{ request()->routeIs('artikel.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
-                {{ request()->is('*artikel*') ? 'text-[#149387] bg-emerald-50/50 font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
+                {{ request()->routeIs('artikel.*') ? 'text-[#149387] bg-emerald-50/50 font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
                 <div class="flex items-center space-x-3">
                     <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
                     <span class="text-sm">Artikel</span>
@@ -31,8 +31,21 @@
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Daftar Artikel</a>
-                <a href="#" class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Bank Artikel</a>
+                <a href="{{ route('artikel.index') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
+                    Daftar Artikel
+                </a>
+                <a href="{{ route('artikel.kelola') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.kelola') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-pen-to-square text-xs w-4 text-center"></i>
+                    Kelola Artikel
+                </a>
+                <a href="{{ route('artikel.ledger') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.ledger') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-book text-xs w-4 text-center"></i>
+                    Artikel Ledger
+                </a>
             </div>
         </details>
 
@@ -49,15 +62,18 @@
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
                 <a href="{{ route('admin_pegawaiGudang.laporan.penjualan') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin_pegawaiGudang.laporan.penjualan') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin_pegawaiGudang.laporan.penjualan') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-chart-line text-xs w-4 text-center"></i>
                     Laporan Penjualan
                 </a>
                 <a href="{{ route('admin_pegawaiGudang.laporan.retur-penjualan') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin_pegawaiGudang.laporan.retur-penjualan') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin_pegawaiGudang.laporan.retur-penjualan') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-rotate-left text-xs w-4 text-center"></i>
                     Laporan Retur Penjualan
                 </a>
                 <a href="{{ route('admin_pegawaiGudang.laporan.pembelian') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin_pegawaiGudang.laporan.pembelian') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin_pegawaiGudang.laporan.pembelian') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-cart-shopping text-xs w-4 text-center"></i>
                     Laporan Pembelian
                 </a>
             </div>
@@ -76,11 +92,13 @@
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
                 <a href="{{ route('admin_pegawaiGudang.laporan-stok.index') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin_pegawaiGudang.laporan-stok.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin_pegawaiGudang.laporan-stok.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-warehouse text-xs w-4 text-center"></i>
                     Laporan Stok
                 </a>
                 <a href="{{ route('admin_pegawaiGudang.laporan-stok.batch-stok') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin_pegawaiGudang.laporan-stok.batch-stok') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin_pegawaiGudang.laporan-stok.batch-stok') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-cubes text-xs w-4 text-center"></i>
                     Laporan Batch Stok
                 </a>
             </div>
@@ -99,11 +117,13 @@
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
                 <a href="{{ route('admin.produsen.index') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.produsen.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.produsen.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
                     Daftar Produsen
                 </a>
                 <a href="{{ route('admin.produsen.bank') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.produsen.bank') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.produsen.bank') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-building-columns text-xs w-4 text-center"></i>
                     Bank Produsen
                 </a>
             </div>
@@ -122,19 +142,23 @@
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
                 <a href="{{ route('admin.karyawan.index') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
                     Daftar Karyawan
                 </a>
                 {{-- <a href="{{ route('admin.karyawan.tambah') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.tambah') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.tambah') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-user-plus text-xs w-4 text-center"></i>
                     Tambah Karyawan
                 </a> --}}
                 <a href="{{ route('admin.karyawan.absensi') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.absensi') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.absensi') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-calendar-check text-xs w-4 text-center"></i>
                     Absensi
                 </a>
                 <a href="{{ route('admin.karyawan.biaya') }}"
-                    class="py-2 px-3 text-sm rounded-lg transition-colors {{ request()->routeIs('admin.karyawan.biaya') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.biaya') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-coins text-xs w-4 text-center"></i>
                     Manajemen Biaya
                 </a>
 
@@ -146,23 +170,28 @@
                     </summary>
                     <div class="mt-1 ml-3 pl-3 border-l border-gray-200 flex flex-col space-y-1 bg-gray-50/50 rounded-lg py-1">
                         <a href="{{ route('admin.karyawan.penggajian.daftar-tunjangan') }}"
-                            class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('admin.karyawan.penggajian.daftar-tunjangan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.penggajian.daftar-tunjangan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            <i class="fa-solid fa-gift text-xs w-4 text-center"></i>
                             Daftar Tunjangan
                         </a>
                         <a href="{{ route('admin.karyawan.penggajian.daftar-pengaturan-gaji') }}"
-                            class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('admin.karyawan.penggajian.daftar-pengaturan-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.penggajian.daftar-pengaturan-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            <i class="fa-solid fa-gears text-xs w-4 text-center"></i>
                             Daftar Konfigurasi Gaji
                         </a>
                         <a href="{{ route('admin.karyawan.penggajian.atur-gaji-karyawan') }}"
-                            class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('admin.karyawan.penggajian.atur-gaji-karyawan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.penggajian.atur-gaji-karyawan') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            <i class="fa-solid fa-plus-circle text-xs w-4 text-center"></i>
                             Atur Gaji Baru
                         </a>
                         <a href="{{ route('admin.karyawan.penggajian.slip-gaji') }}"
-                            class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('admin.karyawan.penggajian.slip-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.penggajian.slip-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            <i class="fa-solid fa-print text-xs w-4 text-center"></i>
                             Cetak Slip Gaji
                         </a>
                         <a href="{{ route('admin.karyawan.penggajian.pembayaran-gaji') }}"
-                            class="py-1.5 px-3 text-xs rounded-md transition-colors {{ request()->routeIs('admin.karyawan.penggajian.pembayaran-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            class="py-1.5 px-3 text-xs rounded-md transition-colors flex items-center gap-2 {{ request()->routeIs('admin.karyawan.penggajian.pembayaran-gaji') ? 'text-[#149387] font-bold bg-white shadow-2xs' : 'text-gray-500 hover:text-[#149387]' }}">
+                            <i class="fa-solid fa-clock-rotate-left text-xs w-4 text-center"></i>
                             Log Pembayaran
                         </a>
                     </div>
