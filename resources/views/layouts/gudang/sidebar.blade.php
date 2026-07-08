@@ -54,25 +54,31 @@
             </div>
         </details>
 
-        <details class="group [&_summary::-webkit-details-marker]:hidden">
+        <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('gudang.produk.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">
                 <div class="flex items-center space-x-3">
-                    <i class="fa-regular fa-cube w-5 text-center text-base"></i>
+                    <i class="fa-solid fa-boxes-stacked w-5 text-center text-base"></i>
                     <span class="font-medium text-sm">Produk</span>
                 </div>
                 <i
                     class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Daftar
-                    Produk</a>
-                <a href="#"
-                    class="py-2 px-3 text-sm text-gray-500 hover:text-[#149387] rounded-lg transition-colors">Kerusakan
-                    Produk</a>
+                <a href="{{ route('gudang.produk.daftar-produk') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('gudang.produk.daftar-produk') || request()->routeIs('gudang.produk.kelola-*') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-list-check text-xs"></i>
+                    Daftar Produk
+                </a>
+
+                <a href="{{ route('gudang.produk.kerusakan-produk') }}"
+                    class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('gudang.produk.kerusakan-produk') ? 'text-[#149387] font-semibold bg-emerald-50/50' : 'text-gray-500 hover:text-[#149387]' }}">
+                    <i class="fa-solid fa-box-tissue text-xs"></i>
+                    Kerusakan Produk
+                </a>
             </div>
         </details>
+
         <details class="group [&_summary::-webkit-details-marker]:hidden">
             <summary
                 class="flex items-center justify-between p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 cursor-pointer transition-all list-none">

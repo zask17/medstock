@@ -7,19 +7,31 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-    // Menampilkan halaman utama produk (index.blade.php)
-    public function index()
-    {
-        return view('gudang.produk.index');
-    }
-
-    // Menampilkan daftar produk (daftar-produk.blade.php)
     public function daftarProduk()
     {
-        return view('gudang.produk.daftar-produk');
+        return view('gudang.produk.daftar-produk.daftar-produk');
     }
 
-    // Menampilkan halaman kerusakan produk (kerusakan-produk.blade.php)
+    public function kelolaKategori()
+    {
+        return view('gudang.produk.daftar-produk.kelola-kategori');
+    }
+
+    public function kelolaMerk()
+    {
+        return view('gudang.produk.daftar-produk.kelola-merk');
+    }
+
+    public function kelolaRakProduk()
+    {
+        return view('gudang.produk.daftar-produk.kelola-rak-produk');
+    }
+
+    public function kelolaTipeProduk()
+    {
+        return view('gudang.produk.daftar-produk.kelola-tipe-produk');
+    }
+
     public function kerusakanProduk()
     {
         return view('gudang.produk.kerusakan-produk');

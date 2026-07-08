@@ -74,6 +74,7 @@ Route::prefix('/gudang')->name('gudang.')->group(function () {
     Route::get('/dashboard', function () {
         return view('gudang.dashboard');
     })->name('dashboard');
+
 Route::prefix('/pembelian')->name('pembelian.')->group(function () {
         Route::get('/daftar-pembelian', [PembelianController::class, 'daftarPembelian'])->name('daftar-pembelian');
         Route::get('/tambah-pembelian', [PembelianController::class, 'tambahPembelian'])->name('tambah');
@@ -84,10 +85,12 @@ Route::prefix('/pembelian')->name('pembelian.')->group(function () {
         Route::get('/terima-retur', [PembelianController::class, 'terimaRetur'])->name('terima-retur');
     });
 
-    // Manajemen Produk
-    Route::prefix('/produk')->name('produk.')->group(function () {
-        Route::get('/', [ProdukController::class, 'index'])->name('index'); // index.blade.php
+Route::prefix('/produk')->name('produk.')->group(function () {
         Route::get('/daftar-produk', [ProdukController::class, 'daftarProduk'])->name('daftar-produk');
+        Route::get('/kelola-kategori', [ProdukController::class, 'kelolaKategori'])->name('kelola-kategori');
+        Route::get('/kelola-merk', [ProdukController::class, 'kelolaMerk'])->name('kelola-merk');
+        Route::get('/kelola-rak-produk', [ProdukController::class, 'kelolaRakProduk'])->name('kelola-rak-produk');
+        Route::get('/kelola-tipe-produk', [ProdukController::class, 'kelolaTipeProduk'])->name('kelola-tipe-produk');
         Route::get('/kerusakan-produk', [ProdukController::class, 'kerusakanProduk'])->name('kerusakan-produk');
     });
 });
