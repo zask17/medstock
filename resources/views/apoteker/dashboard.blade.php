@@ -165,10 +165,10 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             @php
                 $articles = [
-                    ['title' => '10 technologies that will transform the global economy by 2025', 'img' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80'],
-                    ['title' => 'Teknologi Medis Modern dan Arah Baru Ekonomi Kesehatan Dunia', 'img' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80'],
-                    ['title' => 'Inovasi Medis sebagai Motor Baru Pertumbuhan Ekonomi Global...', 'img' => 'https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?w=400&q=80'],
-                    ['title' => 'Revolusi Teknologi Medis dan Dampaknya terhadap Ekon...', 'img' => 'https://images.unsplash.com/photo-1584515933487-75982136b247?w=400&q=80'],
+                    ['title' => '10 technologies that will transform the global economy by 2025', 'img' => 'https://picsum.photos/seed/med1/500/300'],
+                    ['title' => 'Teknologi Medis Modern dan Arah Baru Ekonomi Kesehatan Dunia', 'img' => 'https://picsum.photos/seed/med2/500/300'],
+                    ['title' => 'Inovasi Medis sebagai Motor Baru Pertumbuhan Ekonomi Global...', 'img' => 'https://picsum.photos/seed/med3/500/300'],
+                    ['title' => 'Revolusi Teknologi Medis dan Dampaknya terhadap Ekon...', 'img' => 'https://picsum.photos/seed/med4/500/300'],
                 ];
             @endphp
             @foreach($articles as $art)

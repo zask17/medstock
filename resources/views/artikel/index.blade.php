@@ -5,11 +5,11 @@
 @section('content')
     <div class="space-y-6">
         @if (session('user_role') === 'Admin System')
-            <div class="flex flex-wrap items-center gap-2 border-b border-gray-100 pb-3">
+            {{-- <div class="flex flex-wrap items-center gap-2 border-b border-gray-100 pb-3">
                 <a href="{{ route('artikel.index') }}" class="bg-[#149387] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xs">Daftar Artikel</a>
                 <a href="{{ route('artikel.kelola') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Kelola Artikel</a>
                 <a href="{{ route('artikel.ledger') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Buku Besar Artikel</a>
-            </div>
+            </div> --}}
         @endif
 
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
@@ -24,16 +24,16 @@
                 </div>
             </div>
             <div class="w-48 sm:w-64">
-                <img src="https://illustrations.popsy.co/emerald/doctor.svg" alt="Ilustrasi Kesehatan" class="w-full h-auto object-contain">
+                <img src="https://picsum.photos/seed/doctor-illustration/480/320" alt="Ilustrasi Kesehatan" class="w-full h-auto object-contain">
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @php
                 $articles = [
-                    ['id' => 1, 'title' => 'Edukasi Pasien: Penggunaan Antibiotik Secara Tepat', 'desc' => 'Pentingnya kepatuhan konsumsi obat dan bahaya resistensi mikroba...', 'date' => '28 Feb 2026', 'category' => 'Farmasi Klinis', 'img' => 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80'],
-                    ['id' => 2, 'title' => 'Standar Manajemen Penyimpanan Obat Risikonya Tinggi', 'desc' => 'Tata cara penyimpanan obat High Alert dan LASA di gudang farmasi...', 'date' => '25 Feb 2026', 'category' => 'Manajemen Gudang', 'img' => 'https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&auto=format&fit=crop&q=80'],
-                    ['id' => 3, 'title' => 'Panduan Konseling Suplemen Bagi Pasien Lansia', 'desc' => 'Interaksi obat dan suplemen yang wajib diwaspadai apoteker...', 'date' => '20 Feb 2026', 'category' => 'Pelayanan', 'img' => 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=80'],
+                    ['id' => 1, 'title' => 'Edukasi Pasien: Penggunaan Antibiotik Secara Tepat', 'desc' => 'Pentingnya kepatuhan konsumsi obat dan bahaya resistensi mikroba...', 'date' => '28 Feb 2026', 'category' => 'Farmasi Klinis', 'img' => 'https://picsum.photos/seed/article1/640/360'],
+                    ['id' => 2, 'title' => 'Standar Manajemen Penyimpanan Obat Risikonya Tinggi', 'desc' => 'Tata cara penyimpanan obat High Alert dan LASA di gudang farmasi...', 'date' => '25 Feb 2026', 'category' => 'Manajemen Gudang', 'img' => 'https://picsum.photos/seed/article2/640/360'],
+                    ['id' => 3, 'title' => 'Panduan Konseling Suplemen Bagi Pasien Lansia', 'desc' => 'Interaksi obat dan suplemen yang wajib diwaspadai apoteker...', 'date' => '20 Feb 2026', 'category' => 'Pelayanan', 'img' => 'https://picsum.photos/seed/article3/640/360'],
                 ];
             @endphp
 

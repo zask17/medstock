@@ -54,7 +54,7 @@
         <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-2xs relative hover:shadow-xs transition duration-200">
             <button class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 cursor-pointer"><i class="fa-solid fa-ellipsis-vertical"></i></button>
             <div class="flex items-start gap-4">
-                <img src="{{ $k['foto'] }}" alt="{{ $k['nama'] }}" class="w-14 h-14 rounded-2xl object-cover border border-gray-100 shadow-inner">
+                <img src="{{ (isset($k['foto']) && filter_var($k['foto'], FILTER_VALIDATE_URL)) ? $k['foto'] : 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop' }}" alt="{{ $k['nama'] }}" class="w-14 h-14 rounded-2xl object-cover border border-gray-100 shadow-inner">
                 <div class="flex-1 min-w-0">
                     <h3 class="text-base font-bold text-gray-900 truncate">{{ $k['nama'] }}</h3>
                     <span class="inline-block bg-emerald-50 text-[#149387] font-bold text-[11px] px-2.5 py-0.5 rounded-lg mt-1.5">{{ $k['posisi'] }}</span>

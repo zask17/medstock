@@ -58,7 +58,7 @@
                     @foreach($absensi as $a)
                     <tr class="hover:bg-gray-50/50 transition-colors">
                         <td class="px-6 py-4 flex items-center gap-3">
-                            <img src="{{ $a['foto'] }}" alt="" class="w-8 h-8 rounded-lg object-cover border border-gray-100 shadow-inner">
+                            <img src="{{ (isset($a['foto']) && filter_var($a['foto'], FILTER_VALIDATE_URL)) ? $a['foto'] : 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=80&auto=format&fit=crop' }}" alt="" class="w-8 h-8 rounded-lg object-cover border border-gray-100 shadow-inner">
                             <span class="font-bold text-gray-900 text-xs">{{ $a['nama'] }}</span>
                         </td>
                         <td class="px-6 py-4 text-xs text-gray-500">{{ $a['tgl'] }}</td>

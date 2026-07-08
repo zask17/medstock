@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="space-y-6">
-        <div class="flex flex-wrap items-center gap-2 border-b border-gray-100 pb-3">
+        {{-- <div class="flex flex-wrap items-center gap-2 border-b border-gray-100 pb-3">
             <a href="{{ route('artikel.index') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Daftar Artikel</a>
             <a href="{{ route('artikel.kelola') }}" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold transition-all">Kelola Artikel</a>
             <a href="{{ route('artikel.ledger') }}" class="bg-[#149387] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xs">Buku Besar Artikel</a>
-        </div>
+        </div> --}}
 
         <div class="bg-white rounded-3xl border border-gray-100 shadow-xs p-6 space-y-6">
             <div>
