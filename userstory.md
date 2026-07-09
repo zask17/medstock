@@ -122,6 +122,13 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **Then**: Sistem akan menghitung total gaji berdasarkan komponen yang ada (gaji pokok, tunjangan, potongan).
 *   **And**: Saya dapat melihat atau mencetak slip gaji untuk setiap karyawan pada periode tersebut.
 
+**Skenario Alternatif: Data Gaji Belum Lengkap**
+*   **Given**: Saya berada di halaman "Pembayaran Gaji".
+*   **When**: Saya mencoba memproses gaji untuk periode tertentu.
+*   **And**: Terdapat karyawan yang komponen gajinya (gaji pokok, tunjangan) belum diatur.
+*   **Then**: Sistem akan menampilkan peringatan "Data gaji untuk karyawan [Nama Karyawan] belum lengkap. Silakan atur terlebih dahulu."
+*   **And**: Proses penggajian untuk periode tersebut tidak dapat dilanjutkan hingga data dilengkapi.
+
 ---
 
 ### 3. Modul Pegawai Gudang
@@ -176,6 +183,19 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **And**: Saya memasukkan detail pembayaran (tanggal, jumlah) dan menyimpannya.
 *   **Then**: Sistem akan mengubah status faktur tersebut menjadi "Lunas".
 
+**Skenario Alternatif: Faktur Sudah Lunas**
+*   **Given**: Saya berada di halaman "Pembayaran Pembelian".
+*   **When**: Saya mencari dan memilih faktur yang statusnya sudah "Lunas".
+*   **Then**: Sistem akan menampilkan detail faktur tetapi tidak menyediakan opsi untuk menambah pembayaran baru.
+*   **And**: Sistem menampilkan pesan "Faktur ini sudah lunas."
+
+**Skenario Alternatif: Jumlah Pembayaran Tidak Valid**
+*   **Given**: Saya sedang mengisi detail pembayaran untuk sebuah faktur.
+*   **When**: Saya memasukkan jumlah pembayaran yang lebih besar dari sisa tagihan, atau memasukkan format non-angka.
+*   **And**: Saya menekan tombol "Simpan Pembayaran".
+*   **Then**: Sistem akan menampilkan pesan error, seperti "Jumlah pembayaran melebihi sisa tagihan" atau "Jumlah harus berupa angka".
+*   **And**: Saya tetap berada di halaman pembayaran untuk memperbaiki input.
+
 #### User Story: Mengelola Retur Pembelian
 *   **Sebagai**: Pegawai Gudang
 *   **Saya ingin**: Dapat mengajukan pengembalian produk rusak ke produsen dan memverifikasi barang pengganti yang diterima.
@@ -189,6 +209,18 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **And**: Saya menyimpan permintaan retur.
 *   **Then**: Sistem akan membuat dokumen retur pembelian dan mengurangi stok produk yang diretur.
 
+**Skenario Alternatif: Faktur Pembelian Tidak Ditemukan**
+*   **Given**: Saya berada di halaman "Tambah Retur".
+*   **When**: Saya memasukkan nomor faktur pembelian yang tidak valid atau tidak ada di sistem.
+*   **Then**: Sistem akan menampilkan pesan "Faktur pembelian tidak ditemukan."
+
+**Skenario Alternatif: Jumlah Retur Melebihi Pembelian**
+*   **Given**: Saya sedang mengisi form retur pembelian untuk sebuah faktur.
+*   **When**: Saya memasukkan jumlah produk yang akan diretur lebih banyak dari jumlah yang dibeli pada faktur tersebut.
+*   **And**: Saya mencoba menyimpan permintaan retur.
+*   **Then**: Sistem akan menampilkan pesan error "Jumlah retur untuk produk [Nama Produk] tidak boleh melebihi jumlah pembelian."
+*   **And**: Sistem mencegah penyimpanan data retur.
+
 #### User Story: Mengelola Kerusakan Produk
 *   **Sebagai**: Pegawai Gudang
 *   **Saya ingin**: Dapat mencatat produk yang rusak, pecah, atau kadaluwarsa di gudang.
@@ -201,6 +233,19 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **And**: Saya memilih produk, jumlah, dan alasan kerusakan (misal: pecah saat handling).
 *   **And**: Saya menyimpan catatan.
 *   **Then**: Sistem akan membuat catatan kerusakan dan mengurangi stok produk tersebut dari inventaris.
+
+**Skenario Alternatif: Jumlah Kerusakan Melebihi Stok**
+*   **Given**: Saya berada di form "Tambah Catatan Kerusakan".
+*   **When**: Saya memilih produk dan memasukkan jumlah kerusakan yang melebihi stok yang tersedia saat ini.
+*   **And**: Saya menekan tombol "Simpan".
+*   **Then**: Sistem akan menampilkan pesan error "Jumlah kerusakan tidak boleh melebihi stok yang ada ([Jumlah Stok] unit)".
+*   **And**: Saya tetap berada di halaman form untuk memperbaiki data.
+
+**Skenario Alternatif: Data Tidak Lengkap**
+*   **Given**: Saya berada di form "Tambah Catatan Kerusakan".
+*   **When**: Saya tidak memilih produk atau tidak mengisi jumlah kerusakan.
+*   **And**: Saya menekan tombol "Simpan".
+*   **Then**: Sistem akan menampilkan pesan error yang menunjukkan kolom mana yang wajib diisi.
 
 ---
 
@@ -254,6 +299,11 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **When**: Saya mengakses menu "Dispenser" -> "Penagihan".
 *   **Then**: Sistem akan menampilkan daftar semua transaksi penjualan yang masih berstatus piutang beserta detail pelanggan dan jumlah tagihan.
 
+**Skenario Alternatif: Tidak Ada Piutang**
+*   **Given**: Tidak ada transaksi penjualan dengan status kredit/belum lunas.
+*   **When**: Saya mengakses menu "Dispenser" -> "Penagihan".
+*   **Then**: Sistem akan menampilkan pesan "Tidak ada data piutang yang perlu ditagih saat ini."
+
 ---
 
 ### 5. Modul Laporan
@@ -268,6 +318,12 @@ Dokumen ini berisi kumpulan User Story yang mendeskripsikan kebutuhan fungsional
 *   **When**: Saya membuka menu "Laporan Stok".
 *   **Then**: Sistem akan menampilkan daftar semua produk beserta jumlah stok yang tersedia saat ini.
 *   **And**: Saya dapat menggunakan fitur filter atau pencarian untuk menemukan produk tertentu.
+
+**Skenario Alternatif: Tidak Ada Produk di Sistem**
+*   **Given**: Saya sudah login sebagai Admin System atau Pegawai Gudang.
+*   **When**: Saya membuka menu "Laporan Stok".
+*   **And**: Belum ada data produk sama sekali yang ditambahkan ke sistem.
+*   **Then**: Sistem akan menampilkan pesan "Belum ada produk di dalam sistem. Silakan tambahkan produk terlebih dahulu."
 
 #### User Story: Melihat Laporan Transaksi
 *   **Sebagai**: Admin System atau Pegawai Gudang

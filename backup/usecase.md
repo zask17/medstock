@@ -79,11 +79,12 @@ Sistem ini memiliki beberapa jenis pengguna (aktor) dengan hak akses yang berbed
 
 | Use Case ID | Nama Use Case | Deskripsi |
 | :--- | :--- | :--- |
-| UC-GDG-01 | Kelola Data Produk | Pegawai Gudang dapat mengelola data master produk, termasuk kategori, merk, rak, dan tipe produk. |
-| UC-GDG-02 | Kelola Pembelian | Pegawai Gudang dapat membuat pesanan pembelian baru ke produsen dan melihat daftar pembelian. |
-| UC-GDG-03 | Kelola Pembayaran Pembelian | Pegawai Gudang dapat mengelola status pembayaran untuk setiap pembelian. |
-| UC-GDG-04 | Kelola Retur Pembelian | Pegawai Gudang dapat membuat permintaan retur barang ke produsen dan mengelola prosesnya hingga selesai. |
-| UC-GDG-05 | Kelola Kerusakan Produk | Pegawai Gudang dapat mencatat dan mengelola produk yang rusak di gudang. |
+| UC-GDG-01 | Kelola Data Produk | Pegawai Gudang mengelola produk obat, termasuk kelola merk, kategori, rak, dan tipe produk. |
+| UC-GDG-02 | Kelola Pembelian | Pegawai Gudang membuat pesanan pembelian baru (*PO*) dan mencetak lembar *Invoice*. |
+| UC-GDG-03 | Kelola Pembayaran Produsen | Pegawai Gudang mengelola status pelunasan faktur tagihan kepada produsen mitra. |
+| UC-GDG-04 | Kelola Retur Pembelian | Pegawai Gudang membuat dokumen retur obat rusak/kadaluwarsa ke produsen. |
+| UC-GDG-05 | Terima Retur Pembelian | Pegawai Gudang memverifikasi barang pengganti dari produsen yang lolos QC Gudang. |
+| UC-GDG-06 | Kelola Kerusakan Produk | Pegawai Gudang mencatat dan mendokumentasikan obat yang rusak atau cacat di gudang. |
 
 ### 3.4. Modul Apoteker & Asisten Apoteker
 
