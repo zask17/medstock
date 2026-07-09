@@ -162,8 +162,8 @@ class AuthController extends Controller
                 return redirect()->back()->withErrors(['error' => 'Konfirmasi password tidak cocok!']);
             }
 
-            // Lanjut ke Step 4 (Tampilan Sukses / Modal)
-            return redirect()->route('password.request', ['step' => 4]);
+            // Proses berhasil, kembalikan ke halaman login dengan pesan sukses untuk ditampilkan di modal
+            return redirect()->route('login')->with('password_reset_success', 'Password Anda telah berhasil diubah! Silakan masuk dengan password baru Anda.');
         }
 
         return redirect()->route('login');
