@@ -27,7 +27,7 @@ class ArtikelController extends Controller
         }
 
         if ($role === 'Asisten Apoteker') {
-            return 'layouts.asisten.main';
+            return 'layouts.apoteker.main';
         }
 
         return 'layouts.admin.main';

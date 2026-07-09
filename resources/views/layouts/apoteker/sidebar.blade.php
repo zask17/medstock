@@ -18,8 +18,7 @@
             <span class="text-sm {{ request()->routeIs('apoteker.dashboard') ? 'font-semibold' : 'font-medium' }}">Dasbor</span>
         </a>
 
-        <!-- Artikel -->
-        <a href="{{ route('artikel.index') }}"
+        <a href="https://medstock.framer.website/"
             class="flex items-center space-x-3 p-3 rounded-xl transition-all mb-2 shadow-xs {{ request()->routeIs('artikel.*') ? 'bg-[#149387] text-white font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800 font-medium' }}">
             <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
             <span class="text-sm">Artikel</span>

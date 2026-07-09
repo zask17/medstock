@@ -11,22 +11,18 @@
 
 
     <nav class="flex-1 px-4 space-y-1 overflow-y-auto pb-4 custom-scrollbar">
-
-        <!-- Dasbor -->
         <a href="{{ route('gudang.dashboard') }}"
             class="flex items-center space-x-3 p-3 rounded-xl transition-all mb-2 shadow-xs {{ request()->routeIs('gudang.dashboard') ? 'bg-[#149387] text-white' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}">
             <i class="fa-solid fa-house w-5 text-center"></i>
             <span class="text-sm {{ request()->routeIs('gudang.dashboard') ? 'font-semibold' : 'font-medium' }}">Dasbor</span>
         </a>
 
-        <!-- Artikel -->
-        <a href="{{ route('artikel.index') }}"
+        <a href="https://medstock.framer.website/"
             class="flex items-center space-x-3 p-3 rounded-xl transition-all mb-2 shadow-xs {{ request()->routeIs('artikel.*') ? 'bg-[#149387] text-white font-semibold' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800 font-medium' }}">
             <i class="fa-regular fa-newspaper w-5 text-center text-base"></i>
             <span class="text-sm">Artikel</span>
         </a>
 
-        <!-- Pembelian -->
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('gudang.pembelian.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
@@ -62,7 +58,6 @@
             </div>
         </details>
 
-        <!-- Produk -->
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('gudang.produk.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
@@ -89,7 +84,6 @@
             </div>
         </details>
 
-        <!-- Laporan -->
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('admin_pegawaiGudang.laporan.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
@@ -122,7 +116,6 @@
             </div>
         </details>
 
-        <!-- Laporan Stok -->
         <details class="group [&_summary::-webkit-details-marker]:hidden" {{ request()->routeIs('admin_pegawaiGudang.laporan-stok.*') ? 'open' : '' }}>
             <summary
                 class="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all list-none
@@ -148,7 +141,6 @@
             </div>
         </details>
 
-        <!-- Pengaturan -->
         <a href="#"
             class="flex items-center space-x-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-all">
             <i class="fa-solid fa-gear w-5 text-center text-base"></i>

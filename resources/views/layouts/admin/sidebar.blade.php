@@ -31,7 +31,7 @@
                 <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
             </summary>
             <div class="mt-1 ml-5 pl-4 border-l border-gray-100 flex flex-col space-y-1">
-                <a href="{{ route('artikel.index') }}"
+                <a href="https://medstock.framer.website/"
                     class="py-2 px-3 text-sm rounded-lg transition-colors flex items-center gap-2 {{ request()->routeIs('artikel.index') ? 'text-[#149387] font-semibold bg-gray-50' : 'text-gray-500 hover:text-[#149387]' }}">
                     <i class="fa-solid fa-list-ul text-xs w-4 text-center"></i>
                     Daftar Artikel
