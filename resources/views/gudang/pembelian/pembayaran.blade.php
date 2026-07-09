@@ -204,7 +204,7 @@
                                 <label class="block text-gray-500 mb-1.5">Pilih Rekening Akun (Select Account)</label>
                                 <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
                                     <option>Pilih Salah Satu</option>
-                                    <option value="1">Kas Di Tangan (Cash Hand)</option>
+                                    <option value="1">Kas di Tangan</option>
                                 </select>
                             </div>
                             <div>
@@ -222,7 +222,7 @@
                             <div>
                                 <label class="block text-gray-500 mb-1.5">Metode Pembayaran (Payment Method)</label>
                                 <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
-                                    <option>Cash Hand</option>
+                                    <option>Tunai</option>
                                     <option>Transfer Bank</option>
                                 </select>
                             </div>
@@ -232,7 +232,7 @@
                             </div>
                             <div>
                                 <label class="block text-gray-500 mb-1.5">Saldo Saat Ini (Current Balance)</label>
-                                <input type="text" value="Cash Hand" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
+                                <input type="text" value="Tunai" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
                             </div>
                         </div>
 

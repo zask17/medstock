@@ -101,12 +101,12 @@
                             <tr class="hover:bg-gray-50/50 transition-colors">
                                 <td class="py-4 pl-2"><input type="checkbox" class="rounded border-gray-300 text-[#149387]"></td>
                                 <td class="py-4 px-3 text-gray-400">{{ $i }}</td>
-                                <td class="py-4 px-3 text-gray-500 max-w-[120px] leading-tight">General Supplier</td>
+                                <td class="py-4 px-3 text-gray-500 max-w-[120px] leading-tight">Pemasok Umum</td>
                                 <td class="py-4 px-3 text-gray-800 font-bold">OBH Combi</td>
                                 <td class="py-4 px-3 text-gray-600">Beximco</td>
                                 <td class="py-4 px-3 font-mono text-xs text-gray-500">63264387</td>
                                 <td class="py-4 px-3 text-xs text-gray-400">25 Feb 2022</td>
-                                <td class="py-4 px-3 text-gray-500">Medicine</td>
+                                <td class="py-4 px-3 text-gray-500">Obat-obatan</td>
                                 <td class="py-4 px-3 font-bold text-gray-800">Rp149.000</td>
                                 <td class="py-4 pr-2 text-center">
                                     <div class="flex items-center justify-center gap-1.5">
