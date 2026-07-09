@@ -3,16 +3,14 @@
 @section('title', 'Informasi Kerusakan Produk')
 
 @section('content')
-    <div class="space-y-6">
-        <!-- Header Halaman -->
+    <div class="space-y-6" x-data="{ openKerusakanModal: false }" @keydown.escape.window="openKerusakanModal = false">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h2 class="text-2xl font-bold text-gray-800">Informasi Kerusakan Produk</h2>
                 <p class="text-sm text-gray-400 mt-1">Catat dan pantau seluruh produk obat yang mengalami kerusakan atau cacat fisik.</p>
             </div>
             <div>
-                <!-- Tombol Memunculkan Modal Pop-up -->
-                <button onclick="openKerusakanModal()"
+                <button @click="openKerusakanModal = true"
                     class="bg-[#149387] hover:bg-[#117c71] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-xs flex items-center gap-2 transition-all cursor-pointer">
                     <i class="fa-solid fa-plus text-xs"></i>
                     Tambah Kerusakan
@@ -20,7 +18,6 @@
             </div>
         </div>
 
-        <!-- Panel Filter & Pencarian Utama (Sesuai Gambar image_cad6a9.jpg) -->
         <div class="bg-white rounded-3xl border border-gray-100 shadow-xs p-6">
             <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
                 <div class="relative flex-1 max-w-md">
@@ -32,23 +29,6 @@
                 </button>
             </div>
 
-            <!-- Kontrol Baris & Tombol Ekspor -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-gray-50 pt-5 mb-4">
-                <div class="flex items-center gap-2 text-sm text-gray-400 font-medium">
-                    <span>Tampilkan hingga</span>
-                    <select class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-1.5 focus:outline-none focus:border-[#149387]">
-                        <option selected>100</option>
-                        <option>50</option>
-                        <option>10</option>
-                    </select>
-                    <span>Data</span>
-                </div>
-                <button class="bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-500 rounded-xl px-4 py-2 text-xs font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-arrow-down-long text-[10px]"></i> Ekspor Data
-                </button>
-            </div>
-
-            <!-- Tabel Data Kerusakan (Sesuai Kolom Gambar image_cad6a9.jpg) -->
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-sm min-w-[800px]">
                     <thead>
@@ -65,14 +45,7 @@
                         @php
                             $dummyData = [
                                 ['date' => '28 Feb 2022', 'ref' => '23423 432', 'amount' => 'Rp1.800.000'],
-                                ['date' => '28 Feb 2022', 'ref' => '2343 242', 'amount' => 'Rp4.932.750'],
-                                ['date' => '28 Feb 2022', 'ref' => '2532 434', 'amount' => 'Rp4.932.750'],
-                                ['date' => '28 Feb 2022', 'ref' => '32543 5435', 'amount' => 'Rp1.598.700'],
-                                ['date' => '28 Feb 2022', 'ref' => '34543 5435', 'amount' => 'Rp1.598.700'],
-                                ['date' => '28 Feb 2022', 'ref' => '34345 435', 'amount' => 'Rp3.296.700'],
-                                ['date' => '28 Feb 2022', 'ref' => '3545 354', 'amount' => 'Rp7.128.300'],
-                                ['date' => '28 Feb 2022', 'ref' => 'SP354 353IL', 'amount' => 'Rp4.131.450'],
-                                ['date' => '28 Feb 2022', 'ref' => '54654 654', 'amount' => 'Rp6.699.150'],
+                                ['date' => '28 Feb 2022', 'ref' => '2343 242', 'amount' => 'Rp4.932.750']
                             ];
                         @endphp
 
@@ -101,115 +74,94 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Navigasi Halaman (Pagination) -->
-            <div class="flex justify-end items-center gap-1 mt-6 text-xs font-semibold text-gray-500">
-                <button class="w-7 h-7 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-100 cursor-pointer"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>
-                <button class="w-7 h-7 border border-transparent rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer">1</button>
-                <button class="w-7 h-7 border border-transparent rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer">2</button>
-                <button class="w-7 h-7 bg-[#149387] text-white rounded-lg flex items-center justify-center shadow-2xs">3</button>
-                <span class="px-1 text-gray-300">...</span>
-                <button class="w-7 h-7 border border-transparent rounded-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer">40</button>
-                <button class="w-7 h-7 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-100 cursor-pointer"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-            </div>
         </div>
-    </div>
 
-    <!-- Modal Form Tambah Kerusakan Obat (Sesuai Gambar image_cad6cc.jpg) -->
-    <div id="kerusakanModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity" onclick="closeKerusakanModal()"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+        <div x-show="openKerusakanModal" 
+            style="display: none;"
+            class="fixed inset-0 z-50 overflow-y-auto"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95">
+            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity" @click="openKerusakanModal = false"></div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
-            <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full p-6 border border-gray-100">
-                <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
-                    <h3 class="text-xl font-bold text-gray-800">Tambah Kerusakan Obat Baru</h3>
-                    <button onclick="closeKerusakanModal()" class="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer focus:outline-none">
-                        <i class="fa-solid fa-xmark text-lg"></i>
-                    </button>
+                <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full p-6 border border-gray-100 relative z-10"
+                     @click.outside="openKerusakanModal = false">
+                    <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Tambah Kerusakan Obat Baru</h3>
+                        <button @click="openKerusakanModal = false" class="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer focus:outline-none">
+                            <i class="fa-solid fa-xmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <form @submit.prevent="openKerusakanModal = false" class="space-y-4 text-xs font-semibold">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">No. Referensi (Reference No)</label>
+                                <input type="text" value="763846544" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
+                            </div>
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">Tanggal (Date)</label>
+                                <input type="text" id="damage_date" value="28 Feb 2022" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
+                            </div>
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">Nama Produk (Product Name)</label>
+                                <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
+                                    <option value="Napa 500mg" selected>Napa 500mg</option>
+                                    <option value="Paracetamol 500mg">Paracetamol 500mg</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">Stok Tersedia (Available)</label>
+                                <input type="text" value="90" readonly class="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-xl p-3 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">Tipe Kerusakan (Type)</label>
+                                <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
+                                    <option value="">Pilih Tipe Kerusakan</option>
+                                    <option value="Pecah/Bocor">Kemasan Pecah / Bocor</option>
+                                    <option value="Kedaluwarsa">Kadaluwarsa (Expired)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-500 mb-1.5">Jumlah Rusak (Damage Quantity)</label>
+                                <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
+                                    <option value="">Pilih Jumlah</option>
+                                    <option value="5">5 Box</option>
+                                    <option value="10">10 Box</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-500 mb-1.5">Keterangan / Deskripsi (Description)</label>
+                            <textarea rows="3" placeholder="Masukkan rincian kronologi kerusakan..."
+                                class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-5 border-t border-gray-100 flex justify-end gap-3 mt-4">
+                            <button type="button" @click="openKerusakanModal = false"
+                                class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-6 py-2.5 rounded-xl font-bold transition-all cursor-pointer">
+                                Batal
+                            </button>
+                            <button type="submit"
+                                class="bg-[#149387] hover:bg-[#117c71] text-white px-6 py-2.5 rounded-xl font-bold shadow-xs transition-all cursor-pointer">
+                                Simpan
+                            </button>
+                        </div>
+                    </form>
                 </div>
-
-                <form class="space-y-4 text-xs font-semibold">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">No. Referensi (Reference No)</label>
-                            <input type="text" value="763846544" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
-                        </div>
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">Tanggal (Date)</label>
-                            <input type="text" id="damage_date" value="28 Feb 2022" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387]">
-                        </div>
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">Nama Produk (Product Name)</label>
-                            <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
-                                <option value="Napa 500mg" selected>Napa 500mg</option>
-                                <option value="Paracetamol 500mg">Paracetamol 500mg</option>
-                                <option value="Amoxicillin 500mg">Amoxicillin 500mg</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">Stok Tersedia (Available)</label>
-                            <input type="text" value="90" readonly class="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-xl p-3 focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">Tipe Kerusakan (Type)</label>
-                            <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
-                                <option value="">Pilih Tipe Kerusakan</option>
-                                <option value="Pecah/Bocor">Kemasan Pecah / Bocor</option>
-                                <option value="Kedaluwarsa">Kadaluwarsa (Expired)</option>
-                                <option value="Segel Rusak">Segel Rusak</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-500 mb-1.5">Jumlah Rusak (Damage Quantity)</label>
-                            <select class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] cursor-pointer">
-                                <option value="">Pilih Jumlah</option>
-                                <option value="5">5 Box</option>
-                                <option value="10">10 Box</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-500 mb-1.5">Keterangan / Deskripsi (Description)</label>
-                        <textarea rows="3" placeholder="Masukkan rincian kronologi kerusakan..."
-                            class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-[#149387] resize-none"></textarea>
-                    </div>
-
-                    <div class="pt-5 border-t border-gray-100 flex justify-end gap-3 mt-4">
-                        <button type="button" onclick="closeKerusakanModal()"
-                            class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-6 py-2.5 rounded-xl font-bold transition-all cursor-pointer">
-                            Batal
-                        </button>
-                        <button type="submit"
-                            class="bg-[#149387] hover:bg-[#117c71] text-white px-6 py-2.5 rounded-xl font-bold shadow-xs transition-all cursor-pointer">
-                            Simpan
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
 
     <script>
-        function openKerusakanModal() {
-            const modal = document.getElementById('kerusakanModal');
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-
+        document.addEventListener('DOMContentLoaded', function() {
             flatpickr("#damage_date", { locale: "id", dateFormat: "d M Y" });
-        }
-
-        function closeKerusakanModal() {
-            const modal = document.getElementById('kerusakanModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeKerusakanModal();
-            }
         });
     </script>
 @endsection

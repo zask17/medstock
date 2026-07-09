@@ -86,52 +86,6 @@
 
     </div>
 
-    {{-- =================================================================== --}}
-    {{-- MODAL NOTIFIKASI SUKSES (SETELAH RESET PASSWORD)                     --}}
-    {{-- =================================================================== --}}
-    @if (session('password_reset_success'))
-        <!-- Modal Container -->
-        <div id="successModal" class="fixed inset-0 bg-gray-800 bg-opacity-60 flex items-center justify-center z-50">
-            <!-- Modal Content -->
-            <div class="relative p-6 border w-full max-w-sm shadow-lg rounded-2xl bg-white transform transition-all scale-95 opacity-0" id="successModalContent">
-                <div class="text-center">
-                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-emerald-100">
-                        <svg class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl leading-6 font-bold text-gray-800 mt-4">Sukses!</h3>
-                    <div class="mt-2 px-4 py-3">
-                        <p class="text-sm text-gray-600">
-                            {{ session('password_reset_success') }}
-                        </p>
-                    </div>
-                    <div class="items-center px-4 py-2">
-                        <button id="closeModalBtn" class="w-full bg-[#149387] hover:bg-[#0f7067] text-white font-semibold py-2.5 px-6 rounded-lg shadow-lg shadow-[#149387]/30 transform active:scale-95 transition-all">
-                            Tutup
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const modal = document.getElementById('successModal');
-                const modalContent = document.getElementById('successModalContent');
-                const closeModalBtn = document.getElementById('closeModalBtn');
-
-                // Tampilkan modal dengan animasi
-                setTimeout(() => {
-                    modalContent.classList.remove('scale-95', 'opacity-0');
-                }, 50);
-
-                // Sembunyikan modal saat tombol 'Tutup' diklik
-                closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
-            });
-        </script>
-    @endif
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const logoWrapper = document.getElementById('logo-wrapper');

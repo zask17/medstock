@@ -3,14 +3,16 @@
 @section('title', 'Daftar Produsen Mitra')
 
 @section('content')
-    <div class="space-y-6" x-data="{ openModal: false }">
+    <!-- State Alpine.js Murni -->
+    <div class="space-y-6" x-data="{ openModal: false }" @keydown.escape.window="openModal = false">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h2 class="text-2xl font-bold text-gray-800">Daftar Produsen Mitra</h2>
                 <p class="text-sm text-gray-400 mt-1">Kelola dan pantau seluruh daftar perusahaan manufaktur farmasi yang bekerja sama.</p>
             </div>
             <div>
-                <button @click="openModal = true" onclick="openTambahModal()"
+                <!-- Murni Menggunakan Event Listener Alpine.js -->
+                <button @click="openModal = true"
                     class="bg-[#149387] hover:bg-[#117c71] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-xs flex items-center gap-2 transition-all cursor-pointer">
                     <i class="fa-solid fa-plus text-xs"></i>
                     Tambah Produsen Baru
@@ -18,6 +20,7 @@
             </div>
         </div>
 
+        <!-- Kartu Ringkasan Statistik -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs flex items-center gap-4">
                 <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-[#149387]">
@@ -48,6 +51,7 @@
             </div>
         </div>
 
+        <!-- Tabel Data Produsen -->
         <div class="bg-white rounded-3xl border border-gray-100 shadow-xs p-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div class="relative w-full sm:w-80">
@@ -84,13 +88,12 @@
                     </thead>
                     <tbody class="divide-y divide-gray-50 text-sm text-gray-600">
                         @php
-                            // Data dummy variatif non-repetitif disesuaikan dengan Manufacturer List asli Anda
                             $produsens = [
-                                ['date' => '22 Feb 2022', 'name' => 'Annette Black', 'company' => 'Beximco Pharma', 'email' => 'jane@example.com', 'phone' => '(207) 555-0119', 'address' => '1901 Thornridge Cir. Shiloh, Hawaii 81063', 'balance' => '$300.00'],
-                                ['date' => '24 Feb 2022', 'name' => 'Arlene McCoy', 'company' => 'Square Pharma', 'email' => 'mcc@example.com', 'phone' => '(302) 555-0107', 'address' => '2715 Ash Dr. San Jose, Dakota 83475', 'balance' => '$450.00'],
-                                ['date' => '25 Feb 2022', 'name' => 'Robert Fox', 'company' => 'Kalbe Farma Tbk', 'email' => 'foxe@example.com', 'phone' => '(219) 555-0114', 'address' => '2464 Royal Ln. Mesa, New Jersey 45463', 'balance' => '$600.00'],
-                                ['date' => '04 Mar 2022', 'name' => 'Albert Flores', 'company' => 'Incepta Pharma', 'email' => 'flores@example.com', 'phone' => '(270) 555-0117', 'address' => '4140 Parker Rd. Tanggerang 31134', 'balance' => '$250.00'],
-                                ['date' => '05 Mar 2022', 'name' => 'Jerome Bell', 'company' => 'Sanbe Farma', 'email' => 'jerom@example.com', 'phone' => '(209) 555-0104', 'address' => '3517 W. Gray St. Bandung, Barat 57867', 'balance' => '$700.00']
+                                ['date' => '22 Feb 2022', 'name' => 'Annette Black', 'company' => 'Beximco Pharma', 'email' => 'jane@example.com', 'phone' => '(207) 555-0119', 'address' => '1901 Thornridge Cir. Shiloh, Hawaii 81063', 'balance' => 'Rp4.500.000'],
+                                ['date' => '24 Feb 2022', 'name' => 'Arlene McCoy', 'company' => 'Square Pharma', 'email' => 'mcc@example.com', 'phone' => '(302) 555-0107', 'address' => '2715 Ash Dr. San Jose, Dakota 83475', 'balance' => 'Rp6.750.000'],
+                                ['date' => '25 Feb 2022', 'name' => 'Robert Fox', 'company' => 'Kalbe Farma Tbk', 'email' => 'foxe@example.com', 'phone' => '(219) 555-0114', 'address' => '2464 Royal Ln. Mesa, New Jersey 45463', 'balance' => 'Rp9.000.000'],
+                                ['date' => '04 Mar 2022', 'name' => 'Albert Flores', 'company' => 'Incepta Pharma', 'email' => 'flores@example.com', 'phone' => '(270) 555-0117', 'address' => '4140 Parker Rd. Tanggerang 31134', 'balance' => 'Rp3.750.000'],
+                                ['date' => '05 Mar 2022', 'name' => 'Jerome Bell', 'company' => 'Sanbe Farma', 'email' => 'jerom@example.com', 'phone' => '(209) 555-0104', 'address' => '3517 W. Gray St. Bandung, Barat 57867', 'balance' => 'Rp10.500.000']
                             ];
                         @endphp
 
@@ -120,6 +123,7 @@
                 </table>
             </div>
 
+            <!-- Pagination -->
             <div class="flex justify-end items-center gap-1 mt-6 text-xs font-semibold text-gray-500">
                 <button class="w-7 h-7 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-100 cursor-pointer"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>
                 <button class="w-7 h-7 bg-[#149387] text-white rounded-lg flex items-center justify-center shadow-2xs">1</button>
@@ -131,25 +135,36 @@
             </div>
         </div>
         
-        <div id="tambahProdusenModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Modal Pop-up Tambah Produsen dengan Alpine.js (x-show & x-transition) -->
+        <div x-show="openModal" 
+            class="fixed inset-0 z-50 overflow-y-auto" 
+            style="display: none;"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95">
+            
             <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                
-                <div class="fixed inset-0 transition-opacity bg-black/50 backdrop-blur-md duration-300" onclick="closeTambahModal()"></div>
+                <!-- Latar Belakang Gelap (Overlay) -->
+                <div class="fixed inset-0 transition-opacity bg-black/50 backdrop-blur-xs" @click="openModal = false"></div>
 
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-                <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full p-6 border border-gray-100">
+                <!-- Konten Modal -->
+                <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full p-6 border border-gray-100 relative z-10" @click.outside="openModal = false">
                     <div class="flex items-center justify-between pb-4 border-b border-gray-100">
                         <div>
-                            <h3 class="text-lg font-bold text-gray-800" id="modal-title">Tambah Produsen Baru</h3>
+                            <h3 class="text-lg font-bold text-gray-800">Tambah Produsen Baru</h3>
                             <p class="text-xs text-gray-400 mt-0.5">Lengkapi formulir di bawah untuk mendaftarkan manufaktur mitra apotek baru.</p>
                         </div>
-                        <button onclick="closeTambahModal()" class="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none cursor-pointer">
+                        <button @click="openModal = false" class="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none cursor-pointer">
                             <i class="fa-solid fa-xmark text-lg"></i>
                         </button>
                     </div>
 
-                    <form action="#" method="POST" class="mt-4 space-y-4">
+                    <form @submit.prevent="openModal = false" class="mt-4 space-y-4">
                         <div>
                             <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Nama Produsen (Manufacturer Name)</label>
                             <input type="text" required placeholder="Masukkan nama produsen"
@@ -165,12 +180,12 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">No. Telepon (Phone)</label>
-                                <input type="tel" required placeholder="(202) 345 345 655"
+                                <input type="tel" required placeholder="(021) 555-0119"
                                     class="w-full bg-gray-50 border border-gray-200 text-gray-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#149387] font-mono text-xs">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Saldo Awal (Previous Balance)</label>
-                                <input type="text" placeholder="0.00"
+                                <input type="text" placeholder="Rp0.00"
                                     class="w-full bg-gray-50 border border-gray-200 text-gray-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#149387]">
                             </div>
                         </div>
@@ -182,13 +197,13 @@
                         </div>
 
                         <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-3 mt-6">
-                            <button type="button" onclick="closeTambahModal()"
+                            <button type="button" @click="openModal = false"
                                 class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer">
                                 Batalkan
                             </button>
                             <button type="submit"
                                 class="bg-[#149387] hover:bg-[#117c71] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-xs transition-all cursor-pointer">
-                                Simpan Perubahan
+                                Simpan Produsen
                             </button>
                         </div>
                     </form>
@@ -196,22 +211,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function openTambahModal() {
-            document.getElementById('tambahProdusenModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeTambahModal();
-            }
-        });
-
-        function closeTambahModal() {
-            document.getElementById('tambahProdusenModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
 @endsection
